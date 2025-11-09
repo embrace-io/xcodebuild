@@ -215,10 +215,10 @@ async function main() {
       if (configuration) args = args.concat(['-configuration', configuration])
       if (apiKey) args = args.concat(apiKey)
 
-      args = args.concat([
-        '-resultBundlePath',
-        `${action ?? 'xcodebuild'}.xcresult`,
-      ])
+      const resultBundlePath =
+        core.getInput('result-bundle-path') ||
+        `${action ?? 'xcodebuild'}.xcresult`
+      args = args.concat(['-resultBundlePath', resultBundlePath])
 
       switch (action) {
         case 'build':

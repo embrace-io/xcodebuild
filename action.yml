@@ -54,6 +54,11 @@ inputs:
       Number of times to run each test. This runs each test case multiple times
       to help identify flaky tests. Only applies to test actions.
     required: false
+  result-bundle-path:
+    description: |
+      Path where the .xcresult bundle should be written.
+      If not specified, defaults to `<action>.xcresult` (e.g., `test.xcresult`).
+    required: false
   authentication-key-base64:
     description: |
       A Base64-encoded authentication key issued by App Store Connect. If
