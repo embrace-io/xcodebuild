@@ -239,6 +239,18 @@ async function main() {
           if (testIterations) {
             args = args.concat(['-test-iterations', testIterations])
           }
+          const onlyTesting = core.getMultilineInput('only-testing')
+          for (const test of onlyTesting) {
+            if (test.trim()) {
+              args = args.concat(['-only-testing', test.trim()])
+            }
+          }
+          const skipTesting = core.getMultilineInput('skip-testing')
+          for (const test of skipTesting) {
+            if (test.trim()) {
+              args = args.concat(['-skip-testing', test.trim()])
+            }
+          }
           break
         }
       }

@@ -54,6 +54,18 @@ inputs:
       Number of times to run each test. This runs each test case multiple times
       to help identify flaky tests. Only applies to test actions.
     required: false
+  only-testing:
+    description: |
+      Multiline list of tests to run. Each line should be in the format:
+      TestTarget/TestClass/testMethod or TestTarget/TestClass or TestTarget.
+      Only these specified tests will be executed.
+    required: false
+  skip-testing:
+    description: |
+      Multiline list of tests to skip. Each line should be in the format:
+      TestTarget/TestClass/testMethod or TestTarget/TestClass or TestTarget.
+      These tests will be excluded from execution.
+    required: false
   result-bundle-path:
     description: |
       Path where the .xcresult bundle should be written.
