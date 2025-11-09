@@ -235,6 +235,10 @@ async function main() {
           } else if (sanitizer === 'address') {
             args = args.concat(['-enableAddressSanitizer', 'YES'])
           }
+          const testIterations = core.getInput('test-iterations')
+          if (testIterations) {
+            args = args.concat(['-test-iterations', testIterations])
+          }
           break
         }
       }
